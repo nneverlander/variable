@@ -106,7 +106,7 @@
                             <mainClass>com.google.api.server.spi.tools.EndpointsTool</mainClass>
                             <arguments>
                                 <argument>get-swagger-doc</argument>
-                                <argument>--hostname=variable-160407.appspot.com</argument>
+                                <argument>--hostname=${endpoints.service.name}</argument>
                                 <argument>--war=target/variable-1.0-SNAPSHOT</argument>
                                 <argument>--path=/ep</argument>
                             </arguments>

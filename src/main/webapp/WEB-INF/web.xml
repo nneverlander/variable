@@ -8,7 +8,9 @@
         <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>me.variable.api.CompanyResource</param-value>
+            <param-value>me.variable.test.api.companies.CompanyPostingResource,me.variable.test.api.companies.CompanyPreferencesResource,
+                me.variable.test.api.companies.CompanyProfileResource,me.variable.test.api.seekers.SeekerPreferencesResource,
+                me.variable.test.api.seekers.SeekerProfileResource</param-value>
         </init-param>
     </servlet>
     <!-- Route API method requests to the backend. -->
@@ -20,7 +22,7 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <!-- Add a filter that fetches the service config from service management. -->
+    <!-- todo uncomment filters before deploy Add a filter that fetches the service config from service management. -->
     <!--<filter>
         <filter-name>endpoints-api-configuration</filter-name>
         <filter-class>com.google.api.control.ServiceManagementConfigFilter</filter-class>
