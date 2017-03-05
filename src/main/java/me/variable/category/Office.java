@@ -1,6 +1,5 @@
 package me.variable.category;
 
-import com.google.apphosting.datastore.EntityV4;
 import me.variable.common.Location;
 
 import java.util.List;

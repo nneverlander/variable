@@ -1,11 +1,8 @@
 package me.variable.entity.seeker;
 
 import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Unindex;
-import me.variable.category.Benefits;
 import me.variable.category.CompanyCulture;
 import me.variable.category.Job;
-import me.variable.category.Office;
 
 /**
  * Created by adi on 3/4/17.

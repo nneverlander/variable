@@ -1,7 +1,6 @@
 package me.variable.entity.seeker;
 
 import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Unindex;
 import me.variable.category.Award;
 import me.variable.category.Education;
 import me.variable.category.Skill;

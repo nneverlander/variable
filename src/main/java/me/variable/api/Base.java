@@ -10,6 +10,5 @@ import com.google.api.server.spi.config.Api;
         name = "variable",
         version = "v1"
 )
-
 public class Base {
 }

@@ -9,7 +9,8 @@ import me.variable.entity.Base;
 public class Metadata extends Base {
 
     private String companyRef;
-    @Index private String name;
+    @Index
+    private String name;
 
     public String getCompanyRef() {
         return companyRef;

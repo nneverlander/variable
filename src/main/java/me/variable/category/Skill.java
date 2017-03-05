@@ -1,10 +1,14 @@
 package me.variable.category;
 
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+
 /**
  * Created by adi on 3/4/17.
  */
 public class Skill {
 
+    public Long id;
     private String name;
     private String level; //todo enum
 

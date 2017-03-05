@@ -2,7 +2,6 @@ package me.variable.entity.company;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Index;
-import me.variable.category.Benefits;
 import me.variable.category.Job;
 
 /**
@@ -11,7 +10,8 @@ import me.variable.category.Job;
 @Entity
 public class Posting extends Metadata {
 
-    @Index private String postingId;
+    @Index
+    private String postingId;
     private Job job;
 
     public String getPostingId() {

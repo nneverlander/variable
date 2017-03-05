@@ -23,7 +23,7 @@
         <endpoints.project.id>${cloud.project.id}</endpoints.project.id>
 
         <appengine.app.id>${cloud.project.id}</appengine.app.id>
-        <appengine.app.version>1.0.0</appengine.app.version>
+        <appengine.app.version>1</appengine.app.version>
         <appengine.target.version>1.9.50</appengine.target.version>
     </properties>
 
@@ -118,7 +118,6 @@
     </profiles>
 
     <build>
-        <outputDirectory>target/${project.artifactId}/WEB-INF/classes</outputDirectory>
 
         <plugins>
             <plugin>
@@ -141,6 +140,14 @@
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>1.0.0</version>
+                <configuration>
+                    <port>8080</port>
+                    <host>localhost</host>
+                    <jvmFlags>
+                        <jvmFlag>-Xdebug</jvmFlag>
+                        <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n</jvmFlag>
+                    </jvmFlags>
+                </configuration>
             </plugin>
         </plugins>
     </build>
