@@ -1,0 +1,120 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "version": "1.0.0",
+  "title": "variable-160407.appspot.com"
+ },
+ "host": "variable-160407.appspot.com",
+ "basePath": "/ep",
+ "schemes": [
+  "https"
+ ],
+ "consumes": [
+  "application/json"
+ ],
+ "produces": [
+  "application/json"
+ ],
+ "paths": {
+  "/variable/v1/main": {
+   "get": {
+    "operationId": "VariableGetMain",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Response"
+      }
+     }
+    }
+   }
+  },
+  "/variable/v1/status": {
+   "get": {
+    "operationId": "VariableGetStatus",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Response"
+      }
+     }
+    },
+    "security": [
+     {
+      "google_id_token": [ ]
+     },
+     {
+      "google_id_token_https": [ ]
+     }
+    ],
+    "x-security": [
+     {
+      "google_id_token": {
+       "audiences": [
+        "YOUR_OAUTH_CLIENT_ID"
+       ]
+      }
+     },
+     {
+      "google_id_token_https": {
+       "audiences": [
+        "YOUR_OAUTH_CLIENT_ID"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "/variable/v1/status/{n}": {
+   "post": {
+    "operationId": "VariableEchoStatus",
+    "parameters": [
+     {
+      "name": "n",
+      "in": "path",
+      "required": true,
+      "type": "integer",
+      "format": "int32"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Response"
+      }
+     }
+    }
+   }
+  }
+ },
+ "securityDefinitions": {
+  "google_id_token_https": {
+   "type": "oauth2",
+   "authorizationUrl": "",
+   "flow": "implicit",
+   "x-google-issuer": "https://accounts.google.com",
+   "x-google-jwks_uri": "https://www.googleapis.com/oauth2/v1/certs"
+  },
+  "google_id_token": {
+   "type": "oauth2",
+   "authorizationUrl": "",
+   "flow": "implicit",
+   "x-google-issuer": "accounts.google.com",
+   "x-google-jwks_uri": "https://www.googleapis.com/oauth2/v1/certs"
+  },
+  "firebase": {
+   "type": "oauth2",
+   "authorizationUrl": "",
+   "flow": "implicit",
+   "x-google-issuer": "https://securetoken.google.com/variable-160407",
+   "x-google-jwks_uri": "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com"
+  }
+ },
+ "definitions": {
+  "Response": { }
+ }
+}
