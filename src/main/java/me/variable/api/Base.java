@@ -10,19 +10,7 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 @Api(
         name = "variable",
-        version = "v1",
-        namespace =
-        @ApiNamespace(
-                ownerDomain = "variable.me",
-                ownerName = "variable.me",
-                packagePath = ""
-        ),
-        issuers = {
-                @ApiIssuer(
-                        name = "firebase",
-                        issuer = "https://securetoken.google.com/variable-160407",
-                        jwksUri = "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com")
-        }
+        version = "v1"
 )
 
 public class Base {

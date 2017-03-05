@@ -10,17 +10,21 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <cloud.project.id>variable-160407</cloud.project.id>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.source>1.7</maven.compiler.source>
 
         <endpoints.framework.version>2.0.4</endpoints.framework.version>
         <endpoints.management.version>1.0.2</endpoints.management.version>
+        <endpoints.service.name>${cloud.project.id}.appspot.com</endpoints.service.name>
+        <endpoints.service.version>2017-03-05r0</endpoints.service.version>
+        <endpoints.project.id>${cloud.project.id}</endpoints.project.id>
 
-        <endpoints.project.id>variable-160407</endpoints.project.id>
-
+        <appengine.app.id>${cloud.project.id}</appengine.app.id>
+        <appengine.app.version>1.0.0</appengine.app.version>
         <appengine.target.version>1.9.50</appengine.target.version>
-        <appengine-maven-plugin-version>1.0.0</appengine-maven-plugin-version>
     </properties>
 
     <dependencies>
@@ -105,8 +109,6 @@
                                 <argument>--hostname=variable-160407.appspot.com</argument>
                                 <argument>--war=target/variable-1.0-SNAPSHOT</argument>
                                 <argument>--path=/ep</argument>
-                                <argument>me.variable.api.Status</argument>
-                                <argument>me.variable.api.Main</argument>
                             </arguments>
                         </configuration>
                     </plugin>
@@ -138,7 +140,7 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
-                <version>${appengine-maven-plugin-version}</version>
+                <version>1.0.0</version>
             </plugin>
         </plugins>
     </build>
