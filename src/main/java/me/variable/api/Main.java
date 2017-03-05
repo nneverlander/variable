@@ -16,11 +16,7 @@
 
 package me.variable.api;
 
-import com.google.api.server.spi.auth.EspAuthenticator;
-import com.google.api.server.spi.auth.common.User;
 import com.google.api.server.spi.config.ApiMethod;
-import com.google.api.server.spi.config.Named;
-import com.google.api.server.spi.response.UnauthorizedException;
 
 public class Main extends Base {
 
