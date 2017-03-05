@@ -1,5 +1,7 @@
 package me.variable.entity.seeker;
 
+import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.Unindex;
 import me.variable.entity.Base;
 
 /**
@@ -10,7 +12,7 @@ public class Metadata extends Base {
     private String firstName;
     private String lastName;
     private String phone;
-    private String email;
+    @Index private String email;
 
     public String getFirstName() {
         return firstName;

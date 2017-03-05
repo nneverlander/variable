@@ -1,5 +1,6 @@
 package me.variable.entity.company;
 
+import com.googlecode.objectify.annotation.Entity;
 import me.variable.category.CompanyCulture;
 import me.variable.category.Office;
 
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Created by adi on 3/5/17.
  */
+@Entity
 public class Profile extends Metadata {
 
     private String industry;

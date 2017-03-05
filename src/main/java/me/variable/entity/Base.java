@@ -1,5 +1,9 @@
 package me.variable.entity;
 
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.Unindex;
+
 import java.util.Date;
 
 /**
@@ -7,7 +11,7 @@ import java.util.Date;
  */
 public class Base {
 
-    private Long id;
+    @Id private Long id;
     private String createdBy;
     private Date createdAt;
     private String updatedBy;

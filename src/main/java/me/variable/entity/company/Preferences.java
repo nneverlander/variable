@@ -1,5 +1,6 @@
 package me.variable.entity.company;
 
+import com.googlecode.objectify.annotation.Entity;
 import me.variable.category.Award;
 import me.variable.category.Education;
 import me.variable.category.Skill;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Created by adi on 3/5/17.
  */
+@Entity
 public class Preferences extends Metadata {
 
     private List<Education> educations;
