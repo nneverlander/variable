@@ -1,11 +1,16 @@
 package me.variable.category;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * Created by adi on 3/4/17.
  */
 public class Job {
 
-    private String title;
+    @Index private String title;
     private boolean isWorkScheduleFlexible;
     private boolean isWfhAllowed;
     private boolean isRemoteAllowed;

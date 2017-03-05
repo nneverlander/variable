@@ -1,11 +1,16 @@
 package me.variable.category;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * Created by adi on 3/4/17.
  */
 public class Benefits {
 
-    private int salary;
+    @Index private int salary;
     private int joiningBonus;
     private int relocationBonus;
     private boolean healthInsurance;

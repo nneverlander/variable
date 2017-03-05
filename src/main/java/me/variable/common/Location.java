@@ -1,6 +1,8 @@
 package me.variable.common;
 
-import com.google.apphosting.datastore.EntityV4;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
 
 /**
  * Created by adi on 3/5/17.
@@ -12,20 +14,8 @@ public class Location {
     private String state;
     private String zip;
     private String address;
-    private EntityV4.GeoPoint geoPoint;
-
-    public Location(EntityV4.GeoPoint geoPoint) {
-        this.geoPoint = geoPoint;
-    }
-
-    public Location(String country, String state, String city, String address, String zip, EntityV4.GeoPoint geoPoint) {
-        this.country = country;
-        this.state = state;
-        this.city = city;
-        this.address = address;
-        this.zip = zip;
-        this.geoPoint = geoPoint;
-    }
+    private float lat;
+    private float lng;
 
     public String getCountry() {
         return country;
@@ -67,11 +57,19 @@ public class Location {
         this.address = address;
     }
 
-    public EntityV4.GeoPoint getGeoPoint() {
-        return geoPoint;
+    public float getLat() {
+        return lat;
     }
 
-    public void setGeoPoint(EntityV4.GeoPoint geoPoint) {
-        this.geoPoint = geoPoint;
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public float getLng() {
+        return lng;
+    }
+
+    public void setLng(float lng) {
+        this.lng = lng;
     }
 }

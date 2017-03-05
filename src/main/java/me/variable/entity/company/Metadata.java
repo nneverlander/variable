@@ -1,5 +1,6 @@
 package me.variable.entity.company;
 
+import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Index;
 import me.variable.entity.Base;
 
@@ -10,7 +11,7 @@ public class Metadata extends Base {
 
     private String companyRef;
     @Index
-    private String name;
+    private String companyName;
 
     public String getCompanyRef() {
         return companyRef;
@@ -20,12 +21,12 @@ public class Metadata extends Base {
         this.companyRef = companyRef;
     }
 
-    public String getName() {
-        return name;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
 }

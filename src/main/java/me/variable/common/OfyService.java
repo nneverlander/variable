@@ -3,7 +3,6 @@ package me.variable.common;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
-import me.variable.category.Skill;
 import me.variable.entity.company.Posting;
 import me.variable.entity.company.Preferences;
 import me.variable.entity.company.Profile;

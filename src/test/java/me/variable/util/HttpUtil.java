@@ -37,7 +37,7 @@ public class HttpUtil {
 
     }
 
-    public static void sendPost(String url, byte[] body) throws Exception {
+    public static void sendPost(String url, String body) throws Exception {
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -54,7 +54,7 @@ public class HttpUtil {
         con.setDoOutput(true);
         DataOutputStream wr = new DataOutputStream(con.getOutputStream());
         wr.writeBytes(urlParameters);
-        wr.write(body);
+        wr.writeBytes(body);
         wr.flush();
         wr.close();
 

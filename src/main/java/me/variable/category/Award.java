@@ -1,5 +1,7 @@
 package me.variable.category;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.Date;
 
 /**

@@ -1,10 +1,15 @@
 package me.variable.service.company;
 
-import me.variable.category.Skill;
+import com.googlecode.objectify.Key;
+import com.googlecode.objectify.cmd.QueryKeys;
+import javafx.geometry.Pos;
 import me.variable.entity.company.Posting;
 
-import static me.variable.common.OfyService.ofy;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
+import static me.variable.common.OfyService.ofy;
 
 /**
  * Created by adi on 3/5/17.
@@ -25,6 +30,12 @@ public class PostingService {
 
     public void addPosting(Posting posting) {
         ofy().save().entity(posting).now();
+    }
+
+    public Collection<Posting> listPostings() {
+        QueryKeys<Posting> queryKeys = ofy().load().type(Posting.class).keys();
+        Map<Key<Posting>, Posting> result = ofy().load().keys(queryKeys);
+        return result.values();
     }
 
 }

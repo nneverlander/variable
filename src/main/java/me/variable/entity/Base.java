@@ -1,6 +1,9 @@
 package me.variable.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 import java.util.Date;
 
@@ -11,7 +14,7 @@ public class Base {
 
     @Id
     private Long id;
-    private String createdBy;
+    @Index private String createdBy;
     private Date createdAt;
     private String updatedBy;
     private Date updatedAt;

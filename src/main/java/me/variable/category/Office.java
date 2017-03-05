@@ -1,5 +1,6 @@
 package me.variable.category;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import me.variable.common.Location;
 
 import java.util.List;
