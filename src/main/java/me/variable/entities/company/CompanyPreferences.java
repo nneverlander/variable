@@ -1,10 +1,10 @@
 package me.variable.entities.company;
 
 import com.googlecode.objectify.annotation.Entity;
-import me.variable.categories.WorkEx;
 import me.variable.categories.Award;
 import me.variable.categories.Education;
 import me.variable.categories.Skill;
+import me.variable.categories.WorkEx;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package me.variable.entities.seeker;
 
-import com.googlecode.objectify.annotation.Index;
 import me.variable.entities.Base;
 
 /**

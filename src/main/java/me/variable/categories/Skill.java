@@ -6,7 +6,7 @@ package me.variable.categories;
 public class Skill {
 
     private String name;
-    private String level; //todo enum
+    private String level;
 
     public String getName() {
         return name;

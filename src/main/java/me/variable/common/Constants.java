@@ -12,5 +12,6 @@ public interface Constants {
     String COMPANIES_PREFERENCES_PATH = "companies/preferences";
     String SEEKERS_PROFILES_PATH = "seekers/profiles";
     String SEEKERS_PREFERENCES_PATH = "seekers/preferences";
+    String ENUMS_PATH = "enums";
 
 }

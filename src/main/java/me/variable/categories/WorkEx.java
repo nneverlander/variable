@@ -14,7 +14,7 @@ public class WorkEx {
     private Date started;
     private Date ended;
     private String location;
-    private String type; //todo enum for this like full time etc.
+    private String type;
     private List<String> duties;
     private List<String> skills;
     private List<String> learnings;

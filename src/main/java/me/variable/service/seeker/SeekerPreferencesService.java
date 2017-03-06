@@ -2,8 +2,8 @@ package me.variable.service.seeker;
 
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.cmd.QueryKeys;
-import me.variable.entities.seeker.SeekerPreferences;
 import me.variable.common.OfyService;
+import me.variable.entities.seeker.SeekerPreferences;
 
 import java.util.Collection;
 import java.util.Map;

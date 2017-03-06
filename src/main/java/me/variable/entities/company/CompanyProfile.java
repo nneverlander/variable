@@ -13,9 +13,9 @@ import java.util.List;
 public class CompanyProfile extends CompanyMetadata {
 
     private String industry;
-    private String type; //todo enum public, private
+    private String companyType;
     private CompanyCulture companyCulture;
-    private List<Office> office;
+    private List<Office> offices;
 
     public String getIndustry() {
         return industry;
@@ -25,12 +25,12 @@ public class CompanyProfile extends CompanyMetadata {
         this.industry = industry;
     }
 
-    public String getType() {
-        return type;
+    public String getCompanyType() {
+        return companyType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCompanyType(String companyType) {
+        this.companyType = companyType;
     }
 
     public CompanyCulture getCompanyCulture() {
@@ -41,12 +41,12 @@ public class CompanyProfile extends CompanyMetadata {
         this.companyCulture = companyCulture;
     }
 
-    public List<Office> getOffice() {
-        return office;
+    public List<Office> getOffices() {
+        return offices;
     }
 
-    public void setOffice(List<Office> office) {
-        this.office = office;
+    public void setOffices(List<Office> offices) {
+        this.offices = offices;
     }
 
 }

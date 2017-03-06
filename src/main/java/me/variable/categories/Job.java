@@ -1,7 +1,5 @@
 package me.variable.categories;
 
-import com.googlecode.objectify.annotation.Index;
-
 /**
  * Created by adi on 3/4/17.
  */
@@ -11,7 +9,7 @@ public class Job {
     private boolean isWorkScheduleFlexible;
     private boolean isWfhAllowed;
     private boolean isRemoteAllowed;
-    private String jobType; //todo enum for this
+    private String jobType;
     private Office office;
     private Benefits benefits;
 

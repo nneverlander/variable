@@ -1,6 +1,8 @@
 package me.variable.test.util;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -9,18 +11,16 @@ import java.net.URL;
  */
 public class HttpUtil {
 
-    public static void sendGet(String url) throws Exception {
+    public static String sendGet(String url) throws Exception {
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         // optional default is GET
         con.setRequestMethod("GET");
+        con.setRequestProperty("Accept", "application/json");
 
         int responseCode = con.getResponseCode();
-
-        /*System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + responseCode);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -32,19 +32,20 @@ public class HttpUtil {
         }
         in.close();
 
-        System.out.println(response.toString());*/
+        return response.toString();
 
     }
 
-    public static void sendPost(String url, String body) throws Exception {
+    public static String sendPost(String url, String body) throws Exception {
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("Accept", "application/json");
 
-        String [] urlSplit = url.split("\\?");
+        String[] urlSplit = url.split("\\?");
         String urlParameters = "";
         if (urlSplit.length == 2) {
             urlParameters = urlSplit[1];
@@ -60,7 +61,7 @@ public class HttpUtil {
 
         int responseCode = con.getResponseCode();
 
-        /*BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String inputLine;
         StringBuffer response = new StringBuffer();
 
@@ -69,7 +70,7 @@ public class HttpUtil {
         }
         in.close();
 
-        System.out.println(response.toString());*/
+        return response.toString();
 
     }
 

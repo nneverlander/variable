@@ -1,7 +1,5 @@
 package me.variable.categories;
 
-import com.googlecode.objectify.annotation.Index;
-
 /**
  * Created by adi on 3/4/17.
  */

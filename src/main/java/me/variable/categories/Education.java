@@ -9,8 +9,9 @@ import java.util.List;
 public class Education {
 
     private String schoolName;
-    private String degree; //todo enum
-    private String type; //todo enum
+    private String level;
+    private String type;
+    private String field;
     private String gpa;
     private Date started;
     private Date ended;
@@ -27,12 +28,12 @@ public class Education {
         this.schoolName = schoolName;
     }
 
-    public String getDegree() {
-        return degree;
+    public String getLevel() {
+        return level;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getType() {
@@ -41,6 +42,14 @@ public class Education {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
     }
 
     public String getGpa() {

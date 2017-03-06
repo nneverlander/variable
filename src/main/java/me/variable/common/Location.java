@@ -1,9 +1,5 @@
 package me.variable.common;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
-
 /**
  * Created by adi on 3/5/17.
  */

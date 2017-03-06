@@ -5,8 +5,8 @@ package me.variable.categories;
  */
 public class CompanyCulture {
 
-    private String size; //todo enum for this
-    private String funding; //todo enum for this
+    private String size;
+    private String funding;
 
     public String getSize() {
         return size;

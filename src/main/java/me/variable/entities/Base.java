@@ -1,7 +1,6 @@
 package me.variable.entities;
 
 import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Index;
 
 import java.util.Date;
 

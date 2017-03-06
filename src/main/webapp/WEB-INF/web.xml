@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"  version="2.5">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
 
     <!-- Wrap the backend with Endpoints Frameworks v2. -->
     <servlet>
@@ -8,9 +8,11 @@
         <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>me.variable.api.companies.CompanyPostingResource,me.variable.api.companies.CompanyPreferencesResource,
+            <param-value>
+                me.variable.api.companies.CompanyPostingResource,me.variable.api.companies.CompanyPreferencesResource,
                 me.variable.api.companies.CompanyProfileResource,me.variable.api.seekers.SeekerPreferencesResource,
-                me.variable.api.seekers.SeekerProfileResource</param-value>
+                me.variable.api.seekers.SeekerProfileResource, me.variable.api.enums.EnumResource
+            </param-value>
         </init-param>
     </servlet>
     <!-- Route API method requests to the backend. -->

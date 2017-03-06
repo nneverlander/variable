@@ -1,13 +1,13 @@
-package me.variable.test.company;
+package me.variable.test.seekers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.variable.test.TestConstants;
+import me.variable.categories.Benefits;
 import me.variable.categories.Job;
 import me.variable.categories.Office;
-import me.variable.categories.Benefits;
 import me.variable.common.Constants;
 import me.variable.common.Location;
 import me.variable.entities.company.CompanyPosting;
+import me.variable.test.TestConstants;
 import me.variable.test.util.HttpUtil;
 import org.junit.Test;
 
@@ -16,11 +16,11 @@ import java.io.IOException;
 /**
  * Created by adi on 3/5/17.
  */
-public class CompaniesPostingTest {
+public class SeekersPreferencesTest {
 
     private ObjectMapper mapper = new ObjectMapper();
 
-    public CompaniesPostingTest() throws IOException {
+    public SeekersPreferencesTest() throws IOException {
     }
 
     @Test
