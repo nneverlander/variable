@@ -1,5 +1,10 @@
 package me.variable.categories;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import me.variable.common.Enums;
+import me.variable.common.Location;
+import me.variable.utils.RFC3339DateSerializer;
+
 import java.util.Date;
 import java.util.List;
 
@@ -11,12 +16,14 @@ public class WorkEx {
     private String occupation;
     private String company;
     private String field;
+    @JsonSerialize(using = RFC3339DateSerializer.class)
     private Date started;
+    @JsonSerialize(using = RFC3339DateSerializer.class)
     private Date ended;
-    private String location;
-    private String type;
+    private Location location;
+    private Enums.JobType type;
     private List<String> duties;
-    private List<String> skills;
+    private List<Skill> skills;
     private List<String> learnings;
     private boolean isInterestedInField;
 
@@ -60,19 +67,19 @@ public class WorkEx {
         this.ended = ended;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
-    public String getType() {
+    public Enums.JobType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Enums.JobType type) {
         this.type = type;
     }
 
@@ -84,11 +91,11 @@ public class WorkEx {
         this.duties = duties;
     }
 
-    public List<String> getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<String> skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 

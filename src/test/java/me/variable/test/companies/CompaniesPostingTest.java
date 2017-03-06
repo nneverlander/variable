@@ -1,17 +1,19 @@
 package me.variable.test.companies;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.variable.categories.Benefits;
 import me.variable.categories.Job;
-import me.variable.categories.Office;
 import me.variable.common.Constants;
-import me.variable.common.Location;
 import me.variable.entities.company.CompanyPosting;
 import me.variable.test.TestConstants;
 import me.variable.test.util.HttpUtil;
+import me.variable.test.util.Response;
+import me.variable.test.util.Utils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by adi on 3/5/17.
@@ -25,39 +27,43 @@ public class CompaniesPostingTest {
     }
 
     @Test
-    public void testCompanyPosting() {
-        CompanyPosting companyPosting = new CompanyPosting();
-        companyPosting.setPostingId("company-posting-unittest-" + count);
-
-        Job job = new Job();
-        job.setTitle("job-title-unittest-" + count);
-        job.setJobType("full time");
-
-        Benefits benefits = new Benefits();
-        benefits.setSalary(1000);
-        benefits.setJoiningBonus(1000);
-
-        Office office = new Office();
-        Location location = new Location();
-        location.setCity("sf");
-        location.setAddress("54 sharon");
-        office.setLocation(location);
-
-        job.setOffice(office);
-        job.setBenefits(benefits);
-
-
-        companyPosting.setJob(job);
-        companyPosting.setCompanyName("companyName");
-
+    public void testCreateCompanyPosting() {
         String url = TestConstants.HOST + "/" + Constants.BASEPATH_EP_VARIABLE_V1 + "/" + Constants.COMPANIES_POSTINGS_PATH;
-
+        CompanyPosting companyPosting = buildTestCompanyPosting();
         try {
-            HttpUtil.sendPost(url, mapper.writeValueAsString(companyPosting));
+            Response resp = HttpUtil.sendPost(url, mapper.writeValueAsString(companyPosting));
+            Assert.assertEquals("response code mismatch", 204, resp.getRespCode());
         } catch (Exception e) {
-            e.printStackTrace();
+            Assert.fail(e.getMessage());
         }
-
     }
 
+    @Test
+    public void testListAllPostings() {
+        String url = TestConstants.HOST + "/" + Constants.BASEPATH_EP_VARIABLE_V1 + "/" + Constants.COMPANIES_POSTINGS_PATH;
+        try {
+            Response resp = HttpUtil.sendGet(url);
+            Assert.assertEquals("response code mismatch", 200, resp.getRespCode());
+        } catch (Exception e) {
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    public CompanyPosting buildTestCompanyPosting() {
+        CompanyPosting companyPosting = new CompanyPosting();
+        companyPosting.setPostingId("company-posting-test-" + count);
+
+        Job job = Utils.buildTestJob(count);
+        companyPosting.setJob(job);
+
+        companyPosting.setCompanyName("company-name-test-" + count);
+        companyPosting.setCompanyRef("company-ref-test-" + count);
+        companyPosting.setCreatedBy("createdby-test-" + count);
+        companyPosting.setCreatedAt(Calendar.getInstance().getTime());
+        companyPosting.setUpdatedBy("updatedby-test-" + count);
+        companyPosting.setUpdatedAt(Calendar.getInstance().getTime());
+
+        count++;
+        return companyPosting;
+    }
 }

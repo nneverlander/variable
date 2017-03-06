@@ -1,5 +1,10 @@
 package me.variable.categories;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import me.variable.common.Enums;
+import me.variable.common.Location;
+import me.variable.utils.RFC3339DateSerializer;
+
 import java.util.Date;
 import java.util.List;
 
@@ -9,14 +14,16 @@ import java.util.List;
 public class Education {
 
     private String schoolName;
-    private String level;
-    private String type;
+    private Enums.EducationLevel level;
+    private Enums.EducationType type;
     private String field;
-    private String gpa;
+    private float gpa;
+    @JsonSerialize(using = RFC3339DateSerializer.class)
     private Date started;
+    @JsonSerialize(using = RFC3339DateSerializer.class)
     private Date ended;
-    private String location;
-    private List<String> awards;
+    private Location location;
+    private List<Award> awards;
     private List<String> orgs;
     private List<String> activities;
 
@@ -28,19 +35,19 @@ public class Education {
         this.schoolName = schoolName;
     }
 
-    public String getLevel() {
+    public Enums.EducationLevel getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(Enums.EducationLevel level) {
         this.level = level;
     }
 
-    public String getType() {
+    public Enums.EducationType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Enums.EducationType type) {
         this.type = type;
     }
 
@@ -52,11 +59,11 @@ public class Education {
         this.field = field;
     }
 
-    public String getGpa() {
+    public float getGpa() {
         return gpa;
     }
 
-    public void setGpa(String gpa) {
+    public void setGpa(float gpa) {
         this.gpa = gpa;
     }
 
@@ -76,19 +83,19 @@ public class Education {
         this.ended = ended;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
-    public List<String> getAwards() {
+    public List<Award> getAwards() {
         return awards;
     }
 
-    public void setAwards(List<String> awards) {
+    public void setAwards(List<Award> awards) {
         this.awards = awards;
     }
 

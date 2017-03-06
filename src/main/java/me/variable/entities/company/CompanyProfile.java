@@ -3,6 +3,7 @@ package me.variable.entities.company;
 import com.googlecode.objectify.annotation.Entity;
 import me.variable.categories.CompanyCulture;
 import me.variable.categories.Office;
+import me.variable.common.Enums;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class CompanyProfile extends CompanyMetadata {
 
     private String industry;
-    private String companyType;
+    private Enums.CompanyType companyType;
     private CompanyCulture companyCulture;
     private List<Office> offices;
 
@@ -25,11 +26,11 @@ public class CompanyProfile extends CompanyMetadata {
         this.industry = industry;
     }
 
-    public String getCompanyType() {
+    public Enums.CompanyType getCompanyType() {
         return companyType;
     }
 
-    public void setCompanyType(String companyType) {
+    public void setCompanyType(Enums.CompanyType companyType) {
         this.companyType = companyType;
     }
 

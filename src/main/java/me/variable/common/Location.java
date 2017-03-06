@@ -10,8 +10,8 @@ public class Location {
     private String state;
     private String zip;
     private String address;
-    private float lat;
-    private float lng;
+    private double lat;
+    private double lng;
 
     public String getCountry() {
         return country;
@@ -53,19 +53,19 @@ public class Location {
         this.address = address;
     }
 
-    public float getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(float lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public float getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(float lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 }

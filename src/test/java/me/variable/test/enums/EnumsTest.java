@@ -22,23 +22,27 @@ public class EnumsTest {
 
     @Test
     public void testGetAllEnums() {
-        Map<String, Map<String, String>> enums = enumService.getAll();
-        Assert.assertNotNull("Enums is null", enums);
-        Assert.assertEquals("Enums size is not 7", 7, enums.size());
+        try {
+            Map<String, Map<String, String>> enums = enumService.getAll();
+            Assert.assertNotNull("Enums is null", enums);
+            Assert.assertEquals("Enums size is not 7", 7, enums.size());
+        } catch (Exception e) {
+            Assert.fail(e.getMessage());
+        }
     }
 
     @Test
     public void testEnumResource() {
         String url = TestConstants.HOST + "/" + Constants.BASEPATH_EP_VARIABLE_V1 + "/" + Constants.ENUMS_PATH;
         try {
-            String response = HttpUtil.sendGet(url);
+            String response = HttpUtil.sendGet(url).getResponse();
             JsonNode node = objectMapper.readTree(response);
             //random check
             JsonNode companyFunding = node.get(Enums.CompanyFunding.class.getSimpleName());
             String funding = companyFunding.get("BOOTSTRAPPED").asText(); //bootstrapped type
             Assert.assertEquals("Values don't match", "$1-$10000", funding);
         } catch (Exception e) {
-            e.printStackTrace();
+            Assert.fail(e.getMessage());
         }
 
     }

@@ -1,5 +1,7 @@
 package me.variable.categories;
 
+import me.variable.common.Enums;
+
 /**
  * Created by adi on 3/4/17.
  */
@@ -9,7 +11,7 @@ public class Job {
     private boolean isWorkScheduleFlexible;
     private boolean isWfhAllowed;
     private boolean isRemoteAllowed;
-    private String jobType;
+    private Enums.JobType jobType;
     private Office office;
     private Benefits benefits;
 
@@ -45,11 +47,11 @@ public class Job {
         isRemoteAllowed = remoteAllowed;
     }
 
-    public String getJobType() {
+    public Enums.JobType getJobType() {
         return jobType;
     }
 
-    public void setJobType(String jobType) {
+    public void setJobType(Enums.JobType jobType) {
         this.jobType = jobType;
     }
 

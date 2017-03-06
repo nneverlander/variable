@@ -1,5 +1,8 @@
 package me.variable.categories;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import me.variable.utils.RFC3339DateSerializer;
+
 import java.util.Date;
 
 /**
@@ -9,6 +12,7 @@ public class Award {
 
     private String name;
     private String awardedBy;
+    @JsonSerialize(using = RFC3339DateSerializer.class)
     private Date dateAwarded;
 
     public String getName() {

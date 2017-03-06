@@ -11,7 +11,7 @@ import java.net.URL;
  */
 public class HttpUtil {
 
-    public static String sendGet(String url) throws Exception {
+    public static Response sendGet(String url) throws Exception {
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -32,11 +32,11 @@ public class HttpUtil {
         }
         in.close();
 
-        return response.toString();
+        return new Response(responseCode, response.toString());
 
     }
 
-    public static String sendPost(String url, String body) throws Exception {
+    public static Response sendPost(String url, String body) throws Exception {
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -70,7 +70,7 @@ public class HttpUtil {
         }
         in.close();
 
-        return response.toString();
+        return new Response(responseCode, response.toString());
 
     }
 

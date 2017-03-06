@@ -1,12 +1,14 @@
 package me.variable.categories;
 
+import me.variable.common.Enums;
+
 /**
  * Created by adi on 3/4/17.
  */
 public class Skill {
 
     private String name;
-    private String level;
+    private Enums.SkillLevel level;
 
     public String getName() {
         return name;
@@ -16,11 +18,11 @@ public class Skill {
         this.name = name;
     }
 
-    public String getLevel() {
+    public Enums.SkillLevel getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(Enums.SkillLevel level) {
         this.level = level;
     }
 }

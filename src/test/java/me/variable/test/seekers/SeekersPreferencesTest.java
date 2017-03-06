@@ -1,60 +1,78 @@
 package me.variable.test.seekers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.variable.categories.Benefits;
+import me.variable.categories.CompanyCulture;
 import me.variable.categories.Job;
-import me.variable.categories.Office;
 import me.variable.common.Constants;
-import me.variable.common.Location;
-import me.variable.entities.company.CompanyPosting;
+import me.variable.entities.seeker.SeekerPreferences;
 import me.variable.test.TestConstants;
 import me.variable.test.util.HttpUtil;
+import me.variable.test.util.Response;
+import me.variable.test.util.Utils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by adi on 3/5/17.
  */
 public class SeekersPreferencesTest {
 
+    private static int count = 0;
+    private static int officeCount = 0;
     private ObjectMapper mapper = new ObjectMapper();
 
     public SeekersPreferencesTest() throws IOException {
     }
 
     @Test
-    public void testPosting() {
-        Job job = new Job();
-        job.setTitle("job-title");
-        job.setJobType("full time");
-
-        Benefits benefits = new Benefits();
-        benefits.setSalary(1000);
-        benefits.setJoiningBonus(1000);
-
-        Office office = new Office();
-        Location location = new Location();
-        location.setCity("sf");
-        location.setAddress("54 sharon");
-        office.setLocation(location);
-
-        job.setOffice(office);
-        job.setBenefits(benefits);
-
-        CompanyPosting companyPosting = new CompanyPosting();
-        companyPosting.setPostingId("test-companyPosting-unittest");
-        companyPosting.setJob(job);
-        companyPosting.setCompanyName("companyName");
-
-        String url = TestConstants.HOST + "/" + Constants.BASEPATH_EP_VARIABLE_V1 + "/" + Constants.COMPANIES_POSTINGS_PATH;
-
+    public void testCreatePreferences() {
+        String url = TestConstants.HOST + "/" + Constants.BASEPATH_EP_VARIABLE_V1 + "/" + Constants.SEEKERS_PREFERENCES_PATH;
+        SeekerPreferences seekerPreferences = buildTestSeekerPreferences();
         try {
-            HttpUtil.sendPost(url, mapper.writeValueAsString(companyPosting));
+            Response resp = HttpUtil.sendPost(url, mapper.writeValueAsString(seekerPreferences));
+            Assert.assertEquals("response code mismatch", 204, resp.getRespCode());
         } catch (Exception e) {
-            e.printStackTrace();
+            Assert.fail(e.getMessage());
         }
+    }
 
+    @Test
+    public void testListAllPreferences() {
+        String url = TestConstants.HOST + "/" + Constants.BASEPATH_EP_VARIABLE_V1 + "/" + Constants.SEEKERS_PREFERENCES_PATH;
+        try {
+            Response resp = HttpUtil.sendGet(url);
+            Assert.assertEquals("response code mismatch", 200, resp.getRespCode());
+        } catch (Exception e) {
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    public SeekerPreferences buildTestSeekerPreferences() {
+        SeekerPreferences seekerPreferences = new SeekerPreferences();
+
+        CompanyCulture companyCulture = Utils.buildTestCompanyCulture();
+        seekerPreferences.setCompanyCulture(companyCulture);
+
+        Job job = Utils.buildTestJob(count);
+        seekerPreferences.setJob(job);
+
+        seekerPreferences.setFirstName("seeker-fname-test-" + count);
+        seekerPreferences.setLastName("seeker-lname-test-" + count);
+        seekerPreferences.setEmail("seeker@test" + count + ".com");
+        String phone = String.valueOf(ThreadLocalRandom.current().nextInt(200000000, 999999999));
+        seekerPreferences.setPhone(phone);
+
+        seekerPreferences.setCreatedBy("createdby-test-" + count);
+        seekerPreferences.setCreatedAt(new Date());
+        seekerPreferences.setUpdatedBy("updatedby-test-" + count);
+        seekerPreferences.setUpdatedAt(new Date());
+
+        count++;
+        return seekerPreferences;
     }
 
 }

@@ -143,10 +143,10 @@
                 <configuration>
                     <port>8080</port>
                     <host>localhost</host>
-                    <jvmFlags>
+                    <!--<jvmFlags>
                         <jvmFlag>-Xdebug</jvmFlag>
                         <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n</jvmFlag>
-                    </jvmFlags>
+                    </jvmFlags>-->
                 </configuration>
             </plugin>
         </plugins>
