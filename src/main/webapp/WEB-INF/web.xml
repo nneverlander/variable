@@ -8,9 +8,9 @@
         <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>me.variable.test.api.companies.CompanyPostingResource,me.variable.test.api.companies.CompanyPreferencesResource,
-                me.variable.test.api.companies.CompanyProfileResource,me.variable.test.api.seekers.SeekerPreferencesResource,
-                me.variable.test.api.seekers.SeekerProfileResource</param-value>
+            <param-value>me.variable.api.companies.CompanyPostingResource,me.variable.api.companies.CompanyPreferencesResource,
+                me.variable.api.companies.CompanyProfileResource,me.variable.api.seekers.SeekerPreferencesResource,
+                me.variable.api.seekers.SeekerProfileResource</param-value>
         </init-param>
     </servlet>
     <!-- Route API method requests to the backend. -->

@@ -2,12 +2,12 @@ package me.variable.test.company;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.variable.test.TestConstants;
-import me.variable.test.categories.Benefits;
-import me.variable.test.categories.Job;
-import me.variable.test.categories.Office;
-import me.variable.test.common.Constants;
-import me.variable.test.common.Location;
-import me.variable.test.entities.company.CompanyPosting;
+import me.variable.categories.Job;
+import me.variable.categories.Office;
+import me.variable.categories.Benefits;
+import me.variable.common.Constants;
+import me.variable.common.Location;
+import me.variable.entities.company.CompanyPosting;
 import me.variable.test.util.HttpUtil;
 import org.junit.Test;
 
