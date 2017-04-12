@@ -1,0 +1,779 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "version": "1.0.0",
+  "title": "variable-160407.appspot.com"
+ },
+ "host": "variable-160407.appspot.com",
+ "basePath": "/ep",
+ "schemes": [
+  "https"
+ ],
+ "consumes": [
+  "application/json"
+ ],
+ "produces": [
+  "application/json"
+ ],
+ "paths": {
+  "/variable/v1/companies/postings": {
+   "get": {
+    "operationId": "VariableListAllCompaniesPostings",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/CompanyPostingCollection"
+      }
+     }
+    }
+   },
+   "post": {
+    "operationId": "VariableCreatePosting",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/CompanyPosting"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  },
+  "/variable/v1/companies/preferences": {
+   "get": {
+    "operationId": "VariableListAllCompaniesPreferences",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/CompanyPreferencesCollection"
+      }
+     }
+    }
+   },
+   "post": {
+    "operationId": "VariableCreateCompanyPreferences",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/CompanyPreferences"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  },
+  "/variable/v1/companies/profiles": {
+   "get": {
+    "operationId": "VariableListAllCompaniesProfiles",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/CompanyProfileCollection"
+      }
+     }
+    }
+   },
+   "post": {
+    "operationId": "VariableCreateCompanyProfile",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/CompanyProfile"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  },
+  "/variable/v1/enums": {
+   "get": {
+    "operationId": "VariableGetAllEnums",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/JsonMap"
+      }
+     }
+    }
+   }
+  },
+  "/variable/v1/seekers/preferences": {
+   "get": {
+    "operationId": "VariableListAllSeekersPreferences",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/SeekerPreferencesCollection"
+      }
+     }
+    }
+   },
+   "post": {
+    "operationId": "VariableCreateSeekerPreferences",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/SeekerPreferences"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  },
+  "/variable/v1/seekers/profiles": {
+   "get": {
+    "operationId": "VariableListAllSeekersProfiles",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/SeekerProfileCollection"
+      }
+     }
+    }
+   },
+   "post": {
+    "operationId": "VariableCreateSeekerProfile",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/SeekerProfile"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "Office": {
+   "properties": {
+    "conveniences": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "facilities": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "location": {
+     "$ref": "#/definitions/Location"
+    }
+   }
+  },
+  "SkillLevel": {
+   "enum": [
+    "BEGINNER",
+    "TINKERER",
+    "INTERMEDIATE",
+    "EXPERT"
+   ]
+  },
+  "WorkEx": {
+   "properties": {
+    "company": {
+     "type": "string"
+    },
+    "duties": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "ended": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "field": {
+     "type": "string"
+    },
+    "interestedInField": {
+     "type": "boolean"
+    },
+    "learnings": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "location": {
+     "$ref": "#/definitions/Location"
+    },
+    "occupation": {
+     "type": "string"
+    },
+    "skills": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Skill"
+     }
+    },
+    "started": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "type": {
+     "$ref": "#/definitions/JobType"
+    }
+   }
+  },
+  "EducationType": {
+   "enum": [
+    "HIGHSCHOOL",
+    "COLLEGE",
+    "HOMESCHOOL",
+    "SELF_TAUGHT",
+    "NO_FORMAL_EDUCATION",
+    "LIFE"
+   ]
+  },
+  "SeekerPreferences": {
+   "properties": {
+    "companyCulture": {
+     "$ref": "#/definitions/CompanyCulture"
+    },
+    "createdAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
+    "firstName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "job": {
+     "$ref": "#/definitions/Job"
+    },
+    "lastName": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "updatedAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "updatedBy": {
+     "type": "string"
+    }
+   }
+  },
+  "Benefits": {
+   "properties": {
+    "dentalInsurance": {
+     "type": "boolean"
+    },
+    "healthInsurance": {
+     "type": "boolean"
+    },
+    "joiningBonus": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "matchPercent401k": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "options": {
+     "type": "boolean"
+    },
+    "relocationBonus": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "salary": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "stock": {
+     "type": "boolean"
+    },
+    "visionInsurance": {
+     "type": "boolean"
+    }
+   }
+  },
+  "Education": {
+   "properties": {
+    "activities": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "awards": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Award"
+     }
+    },
+    "ended": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "field": {
+     "type": "string"
+    },
+    "gpa": {
+     "type": "number",
+     "format": "float"
+    },
+    "level": {
+     "$ref": "#/definitions/EducationLevel"
+    },
+    "location": {
+     "$ref": "#/definitions/Location"
+    },
+    "orgs": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "schoolName": {
+     "type": "string"
+    },
+    "started": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "type": {
+     "$ref": "#/definitions/EducationType"
+    }
+   }
+  },
+  "CompanyCulture": {
+   "properties": {
+    "funding": {
+     "$ref": "#/definitions/CompanyFunding"
+    },
+    "size": {
+     "$ref": "#/definitions/CompanySize"
+    }
+   }
+  },
+  "CompanyPreferences": {
+   "properties": {
+    "awards": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Award"
+     }
+    },
+    "companyName": {
+     "type": "string"
+    },
+    "companyRef": {
+     "type": "string"
+    },
+    "createdAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "educations": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Education"
+     }
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "skills": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Skill"
+     }
+    },
+    "updatedAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "updatedBy": {
+     "type": "string"
+    },
+    "workExps": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/WorkEx"
+     }
+    }
+   }
+  },
+  "Job": {
+   "properties": {
+    "benefits": {
+     "$ref": "#/definitions/Benefits"
+    },
+    "jobType": {
+     "$ref": "#/definitions/JobType"
+    },
+    "office": {
+     "$ref": "#/definitions/Office"
+    },
+    "remoteAllowed": {
+     "type": "boolean"
+    },
+    "title": {
+     "type": "string"
+    },
+    "wfhAllowed": {
+     "type": "boolean"
+    },
+    "workScheduleFlexible": {
+     "type": "boolean"
+    }
+   }
+  },
+  "SeekerPreferencesCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/SeekerPreferences"
+     }
+    }
+   }
+  },
+  "SeekerProfileCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/SeekerProfile"
+     }
+    }
+   }
+  },
+  "CompanySize": {
+   "enum": [
+    "STARTUP",
+    "SMALL",
+    "MEDIUM",
+    "LARGE",
+    "HUGE"
+   ]
+  },
+  "CompanyPostingCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/CompanyPosting"
+     }
+    }
+   }
+  },
+  "CompanyType": {
+   "enum": [
+    "PUBLIC",
+    "PRIVATE"
+   ]
+  },
+  "EducationLevel": {
+   "enum": [
+    "SCHOOL",
+    "BACHELORS",
+    "DIPLOMA",
+    "MASTERS",
+    "PHD"
+   ]
+  },
+  "CompanyPreferencesCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/CompanyPreferences"
+     }
+    }
+   }
+  },
+  "JsonMap": { },
+  "CompanyFunding": {
+   "enum": [
+    "BOOTSTRAPPED",
+    "ANGEL",
+    "SEED",
+    "SERIES_A",
+    "SERIES_B",
+    "SERIES_C",
+    "SERIES_D_AND_ABOVE"
+   ]
+  },
+  "SeekerProfile": {
+   "properties": {
+    "awards": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Award"
+     }
+    },
+    "createdAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "educations": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Education"
+     }
+    },
+    "email": {
+     "type": "string"
+    },
+    "firstName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "lastName": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "skills": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Skill"
+     }
+    },
+    "updatedAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "updatedBy": {
+     "type": "string"
+    },
+    "workExps": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/WorkEx"
+     }
+    }
+   }
+  },
+  "Skill": {
+   "properties": {
+    "level": {
+     "$ref": "#/definitions/SkillLevel"
+    },
+    "name": {
+     "type": "string"
+    }
+   }
+  },
+  "CompanyProfile": {
+   "properties": {
+    "companyCulture": {
+     "$ref": "#/definitions/CompanyCulture"
+    },
+    "companyName": {
+     "type": "string"
+    },
+    "companyRef": {
+     "type": "string"
+    },
+    "companyType": {
+     "$ref": "#/definitions/CompanyType"
+    },
+    "createdAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "industry": {
+     "type": "string"
+    },
+    "offices": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Office"
+     }
+    },
+    "updatedAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "updatedBy": {
+     "type": "string"
+    }
+   }
+  },
+  "JobType": {
+   "enum": [
+    "FULLTIME",
+    "PARTTIME",
+    "REMOTE",
+    "CONTRACTOR",
+    "VENDOR",
+    "INTERN",
+    "FREELANCE",
+    "SELF_EMPLOYMENT",
+    "HOURLY",
+    "SEASONAL",
+    "VOLUNTEERING"
+   ]
+  },
+  "CompanyProfileCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/CompanyProfile"
+     }
+    }
+   }
+  },
+  "Award": {
+   "properties": {
+    "awardedBy": {
+     "type": "string"
+    },
+    "dateAwarded": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "name": {
+     "type": "string"
+    }
+   }
+  },
+  "CompanyPosting": {
+   "properties": {
+    "companyName": {
+     "type": "string"
+    },
+    "companyRef": {
+     "type": "string"
+    },
+    "createdAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "job": {
+     "$ref": "#/definitions/Job"
+    },
+    "postingId": {
+     "type": "string"
+    },
+    "updatedAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "updatedBy": {
+     "type": "string"
+    }
+   }
+  },
+  "Location": {
+   "properties": {
+    "address": {
+     "type": "string"
+    },
+    "city": {
+     "type": "string"
+    },
+    "country": {
+     "type": "string"
+    },
+    "lat": {
+     "type": "number",
+     "format": "double"
+    },
+    "lng": {
+     "type": "number",
+     "format": "double"
+    },
+    "state": {
+     "type": "string"
+    },
+    "zip": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}
