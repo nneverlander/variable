@@ -20,8 +20,9 @@ public class CompanyPostingResource extends Base {
         companyPostingService.addPosting(companyPosting);
     }
 
+    //todo this method should be removed
     @ApiMethod(httpMethod = ApiMethod.HttpMethod.GET, path = Constants.COMPANIES_POSTINGS_PATH)
-    public Collection<CompanyPosting> listAllPostings() {
+    public Collection<CompanyPosting> listAllCompaniesPostings() {
         return companyPostingService.listPostings();
     }
 

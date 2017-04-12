@@ -16,12 +16,13 @@ public class CompanyPreferencesResource extends Base {
     CompanyPreferencesService companyPreferencesService = CompanyPreferencesService.getInstance();
 
     @ApiMethod(httpMethod = ApiMethod.HttpMethod.POST, path = Constants.COMPANIES_PREFERENCES_PATH)
-    public void createPreferences(CompanyPreferences companyPreferences) {
+    public void createCompanyPreferences(CompanyPreferences companyPreferences) {
         companyPreferencesService.addPreferences(companyPreferences);
     }
 
+    //todo this method should be removed
     @ApiMethod(httpMethod = ApiMethod.HttpMethod.GET, path = Constants.COMPANIES_PREFERENCES_PATH)
-    public Collection<CompanyPreferences> listAllPreferences() {
+    public Collection<CompanyPreferences> listAllCompaniesPreferences() {
         return companyPreferencesService.listPreferences();
     }
 

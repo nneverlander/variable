@@ -16,12 +16,13 @@ public class SeekerPreferencesResource extends Base {
     SeekerPreferencesService seekerPreferencesService = SeekerPreferencesService.getInstance();
 
     @ApiMethod(httpMethod = ApiMethod.HttpMethod.POST, path = Constants.SEEKERS_PREFERENCES_PATH)
-    public void createPreference(SeekerPreferences seekerPreferences) {
+    public void createSeekerPreferences(SeekerPreferences seekerPreferences) {
         seekerPreferencesService.addPreference(seekerPreferences);
     }
 
+    //todo this method should be removed
     @ApiMethod(httpMethod = ApiMethod.HttpMethod.GET, path = Constants.SEEKERS_PREFERENCES_PATH)
-    public Collection<SeekerPreferences> listAllPreferences() {
+    public Collection<SeekerPreferences> listAllSeekersPreferences() {
         return seekerPreferencesService.listPreferences();
     }
 

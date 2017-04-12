@@ -17,7 +17,7 @@ public class Utils {
     public static Location buildTestLocation(int count) {
         Location location = new Location();
         location.setCity("city-test-" + count);
-        location.setAddress("address-test-");
+        location.setAddress("address-test-" + count);
         location.setCountry("country-test-" + count);
         location.setState("state-test-" + count);
         location.setZip("zip-test-" + count);

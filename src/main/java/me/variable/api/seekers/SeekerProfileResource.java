@@ -16,12 +16,13 @@ public class SeekerProfileResource extends Base {
     SeekerProfileService seekerProfileService = SeekerProfileService.getInstance();
 
     @ApiMethod(httpMethod = ApiMethod.HttpMethod.POST, path = Constants.SEEKERS_PROFILES_PATH)
-    public void createProfile(SeekerProfile seekerProfile) {
+    public void createSeekerProfile(SeekerProfile seekerProfile) {
         seekerProfileService.addProfile(seekerProfile);
     }
 
+    //todo this method should be removed
     @ApiMethod(httpMethod = ApiMethod.HttpMethod.GET, path = Constants.SEEKERS_PROFILES_PATH)
-    public Collection<SeekerProfile> listAllProfiles() {
+    public Collection<SeekerProfile> listAllSeekersProfiles() {
         return seekerProfileService.listProfiles();
     }
 
